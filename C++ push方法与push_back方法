@@ -1,0 +1,200 @@
+https://www.cnblogs.com/xxyue/p/9051509.html
+
+
+
+【摘要】
+
+push与push_back是STL中常见的方法，都是向数据结构中添加元素。初识STL，对于添加元素的方法以产生混淆，这里暂对两种方法作出比较分析。此外，本文还将简述push对应的stack与queue系列，常见方法的介绍，以及与push_back相对应的vector系列常见方法介绍。详见下文。
+
+list 也是使用 push_back .
+
+【正文】
+
+    push_back 方法介绍
+
+    vector::void push_back (const value_type& val);
+
+    vector::void push_back (value_type&& val);
+
+    该函数将一个新的元素加到vector的最后面，位置为当前最后一个元素的下一个元素，新的元素的值是val的拷贝（或者是移动拷贝）
+
+    vector 常见方法介绍
+
+    (1)vector< 类型 > 标识符 ;
+
+    (2)vector< 类型 > 标识符(最大容量) ；
+
+    (3)vector< 类型 > 标识符（最大容量，初始所有值）；
+
+    (4) int i[4] = {12,3,4,5};
+
+    vector< 类型 > vi(i , i+2); //得到i索引值为3以后的值 ；  
+
+    (5)vector< vector<int> > //vi 定义2维的容器；记得一定要有空格，不然可能会报错
+    vector< int > line // 在使用的时候一定要首先将vi个行进行初始化;   
+
+        for(int i = 0 ; i < 10 ; i ++)  
+
+        {  
+
+            vector.push_back(line);  
+
+        }  
+
+    vector 定义二维数组，长度可以不预先确定。
+    (6)C++ vector排序
+
+        vector< int > vi ;   
+
+        vi.push_back(1);  
+
+        vi.push_back(3);  
+
+        vi.push_back(0);  
+
+        sort(vi.begin() , vi.end()); /// /从小到大  
+
+        reverse(vi.begin(),vi.end()); /// 从大到小 
+
+    (7)顺序访问
+
+        vector < int > vi ;   
+
+        for( int i = 0 ; i < 10 ; i ++)  
+
+        {  
+
+            vi.push_back(i);  
+
+        }   
+
+        for(int i = 0 ; i < 10 ; i ++) /// 第一种调用方法  
+
+        {  
+
+            cout <<vi[i] <<" " ;   
+
+        }  
+
+        for(vector<int>::iterator it = vi.begin() ;it !=vi.end() ; it++) ///第二种调用方法  
+
+        {  
+
+            cout << *it << " " ;  
+
+        } 
+
+    (8)查找
+    vector < int > vi ;   
+    for( int i = 0 ; i < 10 ; i ++)  
+    {  
+
+        vector.push_back(i);  
+
+    }   
+    vector < int >::interator it = find(vi.begin() , vi.end(),3) ;  
+    cout << *it << endl ; ///返回容器内找到值的位置。
+    (9)使用数组对C++ vector进行初始化
+    int i[10] ={1,2,3,4,5,6,7,78,8} ;  
+    ///第一种   
+    vector<int> vi(i+1,i+3); ///从第2个元素到第3个元素  
+    for(vector <int>::interator it = vi.begin() ; it != vi.end() ; it++)  
+    {  
+
+        cout << *it <<" " ;   
+
+    } 
+    (10) 结构体的 vector
+    struct temp  
+    {  
+
+          public :  
+
+          string str ;   
+
+          public :  
+
+          int id ;  
+
+    }tmp;
+    int main()  
+    {  
+
+        vector <temp> t ;   
+
+        temp w1 ;   
+
+        w1.str = "Hello world" ;  
+
+        w1.id = 1 ;   
+
+        t.push_back(t1);  
+
+        cout << w1.str << "," <<w1.id <<endl ;   
+
+        return 0 ;   
+
+    }
+
+     
+
+    push 函数介绍
+
+    stack::push();//在栈顶增加元素
+
+    queue::push();//将x 接到队列的末端。
+
+    stack与queue常见方法介绍
+
+    1、stack
+
+    stack 模板类的定义在<stack>头文件中。
+
+    stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要的，在不指定容器类型时，默认的容器类型为deque。
+
+    定义stack 对象的示例代码如下：
+
+    stack<int> s1;
+
+    stack<string> s2;
+
+    stack 的基本操作有：
+
+    入栈，如例：s.push();在栈顶增加元素
+
+    出栈，如例：s.pop();注意，出栈操作只是删除栈顶元素，并不返回该元素。
+
+    访问栈顶，如例：s.top()
+
+    判断栈空，如例：s.empty()，当栈空时，返回true。
+
+    访问栈中的元素个数，如例：s.size()。
+
+     
+
+    2、queue
+
+    queue 模板类的定义在<queue>头文件中。
+
+    与stack 模板类很相似，queue 模板类也需要两个模板参数，一个是元素类型，一个容器类型，元素类型是必要的，容器类型是可选的，默认为deque 类型。
+
+    定义queue 对象的示例代码如下：
+
+    queue<int> q1;
+
+    queue<double> q2;
+
+    queue 的基本操作有：
+
+    入队，如例：q.push(x); 将x 接到队列的末端。
+
+    出队，如例：q.pop(); 弹出队列的第一个元素，注意，并不会返回被弹出元素的值。
+
+    访问队首元素，如例：q.front()，即最早被压入队列的元素。
+
+    访问队尾元素，如例：q.back()，即最后被压入队列的元素。
+
+    判断队列空，如例：q.empty()，当队列空时，返回true。
+
+    访问队列中的元素个数，如例：q.size()
+
