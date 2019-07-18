@@ -1,0 +1,42 @@
+vector<int> v1;
+
+v1.pushback(2);
+v1.push_front(3);
+
+有两种方法对vector进行遍历
+方法1：
+for(int i=0;i<v1.size();i++)
+  cout << v1[i] <<endl;
+  
+方法2：
+vector<int>::iterator ite=v1.begin();
+for(;ite<v1.end();ite++)
+  cout<<*ite<<endl;
+  
+ V1.clear();  //清空数组
+ 
+ //删除值=2的成员
+ ite=v1.begin();
+ for(;ite<v1.end();ite++)
+ {
+    if(*ite == 2)
+      v1.erase(ite);
+ }
+ 
+ 
+ //映射map
+ class CStudent
+ {};
+ 
+ 假如学号是int的类型
+ map<int,CStudent> mapID2Student;
+ 
+ CStudent stud1,stud2;
+ mapID2Student[201] = stud1;
+ mapID2Student[202] = stud2;
+ 
+ map<int,CStudent>::iterator iteMap = mapID2Student.find(201);
+ if(iteMap == mapID2Student.end())
+  cout<<"ID:201 student is not found"<<endl;
+ else 
+  cout<<"ID:201 student is found"<<endl;
