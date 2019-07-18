@@ -2,3 +2,5 @@ int main(int argc,char *argv[])
 
 开发一个程序transfer.exe，负责将一个dat文件转化成为xml文件，那么可以设计成这种调用方式：
 transfer.exe -i /usr/local/project/input.bat -o /usr/local/project/output.xml
+
+这里argv数组存在5个参数，第一个是transfer.exe的路径
