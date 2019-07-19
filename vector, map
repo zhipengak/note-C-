@@ -1,4 +1,5 @@
 http://www.cplusplus.com/reference/vector/vector/vector/
+https://www.cnblogs.com/mr-wid/archive/2013/01/22/2871105.html
 
 vector<int> a ;                                //声明一个int型向量a
 vector<int> a(10) ;                            //声明一个初始大小为10的向量
