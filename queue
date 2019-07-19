@@ -1,0 +1,35 @@
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+void test()
+{
+  queue<int> queueBuild;
+  int sum (0);
+ 
+  for (int i=1;i<=10;i++) 
+    queueBuild.push(i); //入队，如例：q.push(x); 将x接到队列的末端。
+ 
+  queue<int> myqueue(queueBuild);
+
+  while (!myqueue.empty())
+  {
+     int a = myqueue.front(); //访问队首元素，如例：q.front()，即最早被压入队列的元素。
+     cout << a << endl;
+     sum += a;
+     myqueue.pop(); //出队，如例：q.pop(); 弹出队列的第一个元素，注意，并不会返回被弹出元素的值。
+  }
+    cout << "total: " << sum << endl;
+
+  queue<int> mybqueue(queueBuild);
+  
+  cout << "访问队尾元素，如例：q.back()，即最后被压入队列的元素: " <<mybqueue.back() << endl;
+  cout << "访问队列中的元素个数: " <<mybqueue.size() << endl;
+}//运行结果： total： 55
+
+
+
+int main()
+{
+  test();
+}
