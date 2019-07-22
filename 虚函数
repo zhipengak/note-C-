@@ -1,0 +1,32 @@
+https://www.jianshu.com/p/7f16bb2df606
+
+class Shape
+    {
+        public:
+           virtual void draw() = 0;
+           virtual ~Shape() {}
+    };
+
+    class Rectange: public Shape
+    {
+        public:
+            void draw() { // draw rectangle here } 
+    };
+
+
+    class Circle: public Shape
+    {
+        public:
+           void draw() { // draw circle here }
+    };
+Now you can have vector of different shapes:
+
+    vector<Shape*> shapes;
+    shapes.push_back(new Rectangle());
+    shapes.push_back(new Circle());
+And you can draw all shapes like this:
+
+    for(vector<Shape*>::iterator i = shapes.begin(); i != shapes.end(); i++)
+    {
+          (*i)->draw();
+    }
