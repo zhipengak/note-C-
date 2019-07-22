@@ -60,22 +60,3 @@ int main ()
 更多例子可以参考：
 https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html
 
-
- 
- 
- //映射map
- class CStudent
- {};
- 
- 假如学号是int的类型
- map<int,CStudent> mapID2Student;
- 
- CStudent stud1,stud2;
- mapID2Student[201] = stud1;
- mapID2Student[202] = stud2;
- 
- map<int,CStudent>::iterator iteMap = mapID2Student.find(201);
- if(iteMap == mapID2Student.end())
-  cout<<"ID:201 student is not found"<<endl;
- else 
-  cout<<"ID:201 student is found"<<endl;
