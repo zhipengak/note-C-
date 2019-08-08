@@ -1,0 +1,45 @@
+https://blog.csdn.net/qq_39506862/article/details/87690769
+
+1.调用本地电脑上的摄像头
+
+打开新终端，运行roscore
+
+$ roscore
+
+安装PC内置摄像头驱动
+
+$ sudo apt-get install ros-kinetic-usb-cam
+
+新版本的usb_cam包在launch文件夹下有自带的launch文件，名叫usb_cam-test.launch，我们可以直接cd到这个文件夹下运行它。
+
+$ cd  
+$ cd catkin_ws/src/usb_cam/launch  
+$ roslaunch usb_cam-test.launch
+这个时候 调用的是你自己的笔记本上的摄像头，要去launch文件中把video0改成video1就可以调用外接摄像头啦！(一般默认笔记本自带摄像头是video0）
+
+2.调用外部USB摄像头
+usb_cam安装，在工作空间中采用源代码安装：
+
+$ cd catkin_ws/src  
+$ git clone https://github.com/bosch-ros-pkg/usb_cam.git  
+$ cd ..  
+$ catkin_make  
+$ cd /dev #s查看一下,你会在右下角看到video0和video1，video0一般是你电脑自带的摄像头，video1是你刚才插入的摄像头
+进入下载的包，找到usb_cam-test.launch文件，修改里面的内容video0改成video1，保存并退出，source一下。
+  source devel/setup.bash
+然后执行：
+ roslaunch usb_cam usb_cam-test.launch #开启摄像头
+
+3.rviz可视化
+  rosrun rviz rviz 打开可视化界面,将话题设置成/pandar_points（这里是我的点云数据的话题，rostopic list查看话题名称）
+  cd到bag数据文件中，播放文件
+  rosbag play ***.bag
+
+
+4.使用Rosbag存储摄像头发布的话题中的消息
+
+ rosbag record -o camera /camera/rgb/image_raw
+使用Ctrl+C停止录制数据
+--------------------- 
+版权声明：本文为CSDN博主「ywfwyht」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_39506862/article/details/87690769
